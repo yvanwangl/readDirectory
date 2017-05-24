@@ -4,8 +4,6 @@ const path = require('path');
 
 const app = new Koa();
 
-console.log(typeof path.join === 'function');
-
 (
     async (ctx, next) => {
     let dirPath = __dirname;
@@ -14,6 +12,7 @@ console.log(typeof path.join === 'function');
         name: dirPath,
         children: []
     };
+    //dirPath 为dir 的上下文路径，所以需要传递
     async function getChildren(dirPath, dirs, dirObj){
         // console.log(JSON.stringify(dirPath));
         Array.from(dirs).map(dir=> {
@@ -31,9 +30,9 @@ console.log(typeof path.join === 'function');
                         children: []
                     };
                     dirObj.children.push(dirObjChild);
-                    let dirsChild = fs.readdirSync(filePath);
+                    let dirsChildren = fs.readdirSync(filePath);
                     // console.log(dirsChild);
-                    getChildren(filePath, dirsChild, dirObjChild);
+                    getChildren(filePath, dirsChildren, dirObjChild);
                 }
             });
     }
