@@ -2,8 +2,10 @@
 
 ## Note:
 ```
-If the version number is less than v7.6.0, that Node.js version is wrong, the following section of the code does not guarantee normal operation, please re-install the latest version.
+$ node -v
+v7.6.0
 ```
+If the version number is less than v7.6.0, that Node.js version is wrong, the following section of the code does not guarantee normal operation, please re-install the latest version.
 
 ## clone the repository
 
